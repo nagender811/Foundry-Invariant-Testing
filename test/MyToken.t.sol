@@ -1,9 +1,17 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
 import {Test} from "forge-std/Test.sol";
 import {MyToken} from "../src/MyToken.sol";
 
-contract CounterTest is Test {
-   
+contract MyTokenTest is Test {
+    MyToken public token;
+
+    function setUp() public {
+        token = new MyToken();
+    }
+
+    function invariant_totalSupplyShouldBeZeroWhenNoMinting() public view {
+        assertEq(token.totalSupply(), 0);
+    }
 }

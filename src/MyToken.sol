@@ -8,7 +8,7 @@ contract MyToken is ERC20{
 
     }
 
-    function mintToken() public {
-        _mint(address(this), 1000);
+    function mintMyToken(uint256 amount) public {
+        _mint(address(this), amount);
     }
 }
